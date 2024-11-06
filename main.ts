@@ -18,22 +18,69 @@ basic.showIcon(IconNames.Happy)
 // Setting the while loop for button a.
 input.onButtonPressed(Button.A, function () {
     basic.clearScreen()
+    xcnt = 0
+    ycnt = 0
     sprite = game.createSprite(0, 0)
-    let cntTurn = 0;
-    //blink on the first led
-    sprite.set(LedSpriteProperty.X, 0)
+    // Setting the loop for 
+    while (xcnt <= 5) {
+        sprite.set(LedSpriteProperty.X, xcnt)
+        sprite.set(LedSpriteProperty.Y, ycnt)
+        xcnt++
+        basic.pause(500)
+    }
     basic.pause(500)
-    //loop for turn
-    while (cntTurn < 4) {
-        let cntMove = 0;
-        //loop for move
-        while (cntMove < 5) {
-            sprite.move(1)
-            cntMove++;
-            basic.pause(500)
-        }
-        sprite.turn(Direction.Right, 90)
-        cntTurn++
+    while (ycnt <= 5) {
+        sprite.set(LedSpriteProperty.X, xcnt)
+        sprite.set(LedSpriteProperty.Y, ycnt)
+        ycnt++
+        basic.pause(500)
+    }
+    basic.pause(500)
+    while (xcnt > -1) {
+        sprite.set(LedSpriteProperty.X, xcnt)
+        sprite.set(LedSpriteProperty.Y, ycnt)
+        xcnt--
+        basic.pause(500)
+    }
+    basic.pause(500)
+    while (ycnt > -1) {
+        sprite.set(LedSpriteProperty.X, xcnt)
+        sprite.set(LedSpriteProperty.Y, ycnt)
+        ycnt--
+        basic.pause(500)
+    }
+    sprite.delete()
+    basic.showIcon(IconNames.Happy)
+})
+
+input.onButtonPressed(Button.B, function () {
+    basic.clearScreen()
+    xcnt = 4
+    ycnt = 4
+    sprite = game.createSprite(5, 5)
+    while (ycnt > 0) {
+        sprite.set(LedSpriteProperty.X, xcnt)
+        sprite.set(LedSpriteProperty.Y, ycnt)
+        ycnt--
+        basic.pause(500)
+    }
+    while (xcnt > 0) {
+        sprite.set(LedSpriteProperty.X, xcnt)
+        sprite.set(LedSpriteProperty.Y, ycnt)
+        xcnt--
+        basic.pause(500)
+    }
+    while (ycnt < 5) {
+        sprite.set(LedSpriteProperty.X, xcnt)
+        sprite.set(LedSpriteProperty.Y, ycnt)
+        ycnt++
+        basic.pause(500)
+    }
+    while (xcnt < 5) {
+        sprite.set(LedSpriteProperty.X, xcnt)
+        sprite.set(LedSpriteProperty.Y, ycnt)
+        xcnt++
+        basic.pause(500)
     }
     sprite.delete()
     basic.showIcon(IconNames.Happy)
